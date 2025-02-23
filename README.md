@@ -1,2 +1,2 @@
 # DynamiQ IT
-DynamiQ IT shared Scripts
+DynamiQ IT shared scripts
