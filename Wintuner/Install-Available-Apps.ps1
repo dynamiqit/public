@@ -1,3 +1,34 @@
+<#
+.SYNOPSIS
+This script installs or updates the WinTuner module, allows the user to select Intune apps to deploy, and deploys them to a specified group.
+
+.DESCRIPTION
+The script performs the following tasks:
+1. Checks if the WinTuner module is installed. If not, it installs the module from PSGallery.
+2. If the module is installed, it checks if the installed version is the latest. If not, it updates the module.
+3. Imports the WinTuner module.
+4. Prompts the user to enter package IDs of apps to add to the deployment list.
+5. Connects to WinTuner.
+6. Creates a folder 'C:\Wintuner' if it does not exist.
+7. Deploys the selected apps to the specified group.
+8. Disconnects from WinTuner.
+9. Cleans up all files in the 'C:\Wintuner' folder.
+
+.PARAMETER GroupID
+The Object ID of the group to which the apps will be deployed. This parameter is mandatory.
+
+.EXAMPLE
+.\Install-Available-Apps.ps1 -GroupID "your-group-id"
+This example runs the script and deploys the selected apps to the specified group.
+
+.NOTES
+Ensure you have the necessary permissions to install/update modules and deploy apps using WinTuner.
+
+.AUTHOR
+Jermaine Zimmerman
+DynamiQ IT
+#>
+
 param (
     [Parameter(Mandatory=$true)]
     [string]$GroupID # Group Object ID to deploy the app
